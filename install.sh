@@ -43,4 +43,4 @@ wget https://bottlepy.org/bottle.py
 sudo ufw allow 80
 ip addr show
 wget https://raw.githubusercontent.com/cadamswaite/RPI-Jekyll-Compiler/master/webhook.py
-python ./webhook &
+python ./webhook.py &

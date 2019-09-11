@@ -7,12 +7,12 @@ apt-get update && apt-get upgrade -y
 
 #SSH From https://www.raspberrypi.org/documentation/configuration/security.md
 
-FILE=~/.ssh/id_rsa
+FILE=/home/pi/.ssh/id_rsa
 if [ -f "$FILE" ]; then
     echo "$FILE exist, not generating new ssh key"
 else 
     echo "$FILE does not exist. Generating ssh key"
-    ssh-keygen -t rsa -q -P ""
+    ssh-keygen -t rsa -f /home/pi/.ssh/id_rsa -q -P ""
 fi
 
 

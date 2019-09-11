@@ -6,7 +6,16 @@ echo "Performing updates"
 apt-get update && apt-get upgrade -y
 
 #SSH From https://www.raspberrypi.org/documentation/configuration/security.md
-ssh-keygen -t rsa -q -P ""
+
+FILE=~/.ssh/id_rsa
+if [ -f "$FILE" ]; then
+    echo "$FILE exist, not generating new ssh key"
+else 
+    echo "$FILE does not exist. Generating ssh key"
+    ssh-keygen -t rsa -q -P ""
+fi
+
+
 
 apt install openssh-server
 sed -i 's/.*ChallengeResponseAuthentication .*/ChallengeResponseAuthentication no' /etc/ssh/sshd_config

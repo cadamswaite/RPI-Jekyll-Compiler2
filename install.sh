@@ -12,6 +12,7 @@ if [ -f "$FILE" ]; then
     echo "$FILE exist, not generating new ssh key"
 else 
     echo "$FILE does not exist. Generating ssh key"
+    mkdir /home/pi/.ssh/
     ssh-keygen -t rsa -f /home/pi/.ssh/id_rsa -q -P ""
 fi
 

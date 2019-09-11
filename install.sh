@@ -32,3 +32,12 @@ ufw limit ssh/tcp
 echo "Installing fail2ban"
 apt install fail2ban
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+# Download bottle for creating webhooks
+echo "Downloading Bottle"
+wget https://bottlepy.org/bottle.py
+
+# Download python script for creating webpages
+sudo ufw allow 80
+wget https://raw.githubusercontent.com/cadamswaite/RPI-Jekyll-Compiler/master/webhook.py
+python webhook &

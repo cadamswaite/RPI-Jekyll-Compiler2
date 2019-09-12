@@ -1,20 +1,20 @@
 # RPI-Jekyll-Compiler
 Downloads, compiles and uploads website to a different GIT for hosting.
 
-# It is important the RPi is not accessible from the internet when setting up ssh!
+## It is important the RPi is not accessible from the internet when setting up ssh!
 Usually this would be blocked by your router firewall. If not, the RPI could be hacked within minutes of connecting!
-To avoid this, at least change the default password of the pi
-'''
+To avoid this, at least change the default password of the pi using:
+```
 passwd
-'''
+```
 
-Additional steps would be to change the username as well, change the port of ssh etc.
+Additional steps would be to change the username as well, change the port of ssh etc.This is mainly important during setup. 
+Once public key auth is setup (along with ufw rate limits and fail2ban to block repeat offenders) the pi *should*<sup>TM</sup> be secure.
 
-
-# Prerequisites
+## Prerequisites
 On Windows, need putty, puttygen and pageant to manage certificates.
 
-# Steps
+## Steps
 1. Burn latest (rasbian buster light)[https://www.raspberrypi.org/downloads/raspbian/]  onto SD card.
 2. Download and run the install script using 
 ```

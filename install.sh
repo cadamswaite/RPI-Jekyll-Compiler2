@@ -16,7 +16,7 @@ if [ -f /home/pi/.ssh/id_rsa ]; then
     echo "id_rsa exists, not generating new ssh key"
 else 
     echo "id_rsa does not exist. Generating ssh key"
-    mkdir /home/pi/.ssh/
+    sudo -u pi -g pi -- mkdir /home/pi/.ssh/
     sudo -u pi -g pi -- ssh-keygen -t rsa -f /home/pi/.ssh/id_rsa -q -P ""
     mv /home/pi/.ssh/id_rsa.pub /home/pi/.ssh/id_rsa/authorized_keys
     echo -e "Default \e[31mSSH key generated. Please copy id_rsa to PC now and press enter to continue"

@@ -20,9 +20,9 @@ mv /home/pi/.ssh/id_rsa.pub /home/pi/.ssh/authorized_keys
 echo -e "Default \e[31mSSH key generated. Please copy id_rsa to PC now and press enter to continue\e[m"
 read enter
 rm /home/pi/.ssh/id_rsa
-chmod 600 /home/pi/.ssh/authorized_keys
-chmod 600 /home/pi/.ssh/
-chown root:root /home/pi/.ssh/
+chmod 644 /home/pi/.ssh/authorized_keys
+chmod 644 /home/pi/.ssh/
+
 
 echo "Securing ssh"
 sed -i 's/ChallengeResponseAuthentication .*/ChallengeResponseAuthentication no/g' /etc/ssh/sshd_config

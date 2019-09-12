@@ -12,10 +12,10 @@ Additional steps would be to change the username as well, change the port of ssh
 Once public key auth is setup (along with ufw rate limits and fail2ban to block repeat offenders) the pi *should*<sup>TM</sup> be secure.
 
 ## Prerequisites
-On Windows, need putty, puttygen and pageant to manage certificates.
+On Windows, need putty, puttygen and pageant to manage certificates. All can be found [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 ## Steps
-1. Burn latest (rasbian buster light)[https://www.raspberrypi.org/downloads/raspbian/]  onto SD card.
+1. Burn latest [rasbian buster light](https://www.raspberrypi.org/downloads/raspbian/)  onto SD card.
 2. Download and run the install script using 
 ```
 wget https://raw.githubusercontent.com/cadamswaite/RPI-Jekyll-Compiler/master/install.sh

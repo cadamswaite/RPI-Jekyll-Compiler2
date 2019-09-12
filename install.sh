@@ -18,8 +18,12 @@ else
     echo "id_rsa does not exist. Generating ssh key"
     mkdir /home/pi/.ssh/
     sudo -u pi -g pi -- ssh-keygen -t rsa -f /home/pi/.ssh/id_rsa -q -P ""
+    mv /home/pi/.ssh/id_rsa.pub /home/pi/.ssh/id_rsa/authorized_keys
     echo -e "Default \e[31mSSH key generated. Please copy id_rsa to PC now and press enter to continue"
     read enter
+    rm /home/pi/.ssh/id_rsa
+    chmod 600 /home/pi/.ssh/authorized_keys
+    chmod 600 /home/pi/.ssh/
 fi
 
 echo "Securing ssh"

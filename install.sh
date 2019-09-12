@@ -31,7 +31,7 @@ sed -i 's/UsePAM .*/UsePAM no/g' /etc/ssh/sshd_config
 service ssh reload
 
 echo "Installing ufw"
-apt install ufw -y
+apt-get -qq install ufw -y
 ufw enable
 ufw allow ssh
 ufw limit ssh/tcp

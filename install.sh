@@ -21,7 +21,7 @@ echo -e "Default \e[31mSSH key generated. Please copy id_rsa to PC now and press
 read enter
 rm /home/pi/.ssh/id_rsa
 chmod 644 /home/pi/.ssh/authorized_keys
-chmod 644 /home/pi/.ssh/
+chmod 700 /home/pi/.ssh/
 
 
 echo "Securing ssh"

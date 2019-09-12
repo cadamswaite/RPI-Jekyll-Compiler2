@@ -2,12 +2,12 @@
 
 echo "Beginning install script.."
 
-echo "Performing updates"
-apt-get update && apt-get upgrade -y
+echo "Performing updates disabled during dev!"
+#apt-get update && apt-get upgrade -y
 
 #SSH From https://www.raspberrypi.org/documentation/configuration/security.md
 
-
+echo "Installing ssh server"
 apt -qq install openssh-server -y
 service ssh start
 echo "Started ssh server"
@@ -18,7 +18,7 @@ else
     echo "id_rsa does not exist. Generating ssh key"
     sudo -u pi -g pi -- mkdir /home/pi/.ssh/
     sudo -u pi -g pi -- ssh-keygen -t rsa -f /home/pi/.ssh/id_rsa -q -P ""
-    mv /home/pi/.ssh/id_rsa.pub /home/pi/.ssh/id_rsa/authorized_keys
+    mv /home/pi/.ssh/id_rsa.pub /home/pi/.ssh/authorized_keys
     echo -e "Default \e[31mSSH key generated. Please copy id_rsa to PC now and press enter to continue"
     read enter
     rm /home/pi/.ssh/id_rsa

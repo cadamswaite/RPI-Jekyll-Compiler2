@@ -39,13 +39,15 @@ ufw limit ssh/tcp
 echo "Installing fail2ban"
 apt-get -qq install fail2ban -y
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+# Ban IPs forever if they fail 3 times. To unblock, use:
+# fail2ban-client set sshd unbanip <IP>
+# Check blocked IPs using fail2ban-client status sshd
 sed -i 's/^\[sshd\]/[sshd]\nenabled = true\nfilter = sshd\nbanaction = iptables-multiport\nbantime = -1\nmaxretry = 3\n/g' /etc/fail2ban/jail.local
 
-# Block any ips that fail to provide a certificate 3 times. To unblock, use:
-# fail2ban-client set sshd unbanip <IP>
+# Block any ips that fail to provide a certificate 3 times.
 sed -i 's|failregex = |failregex = ^Connection \(closed\|reset\) by authenticating user pi <HOST> port \\d+ \\\[preauth\\\]$\n            |g' /etc/fail2ban/filter.d/sshd.conf  
 
-service fail2ban restart
+systemctl restart fail2ban
 echo "Fail2ban set up"
 
 echo "Install complete!"

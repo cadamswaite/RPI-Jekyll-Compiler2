@@ -8,7 +8,7 @@ echo "Performing updates disabled during dev!"
 #SSH From https://www.raspberrypi.org/documentation/configuration/security.md
 
 echo "Installing ssh server"
-apt -qq install openssh-server -y
+apt-get -qq install openssh-server -y
 service ssh start
 echo "Started ssh server"
 
@@ -39,7 +39,7 @@ ufw allow ssh
 ufw limit ssh/tcp
 
 echo "Installing fail2ban"
-apt -qq install fail2ban -y
+apt-get -qq install fail2ban -y
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 # Download bottle for creating webhooks
